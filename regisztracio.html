@@ -13,7 +13,9 @@
     <div class="tartalom">
         <h1>Telekocsi</h1>
         <div class="menu">
-            <h2>Bemutatkozás</h2>
+            <a href="telekocsi.html">
+                <h2>Bemutatkozás</h2>
+            </a>
             <ul>
                 <li>Sofőröknek</li>
                 <li>Utasoknak</li>
@@ -24,33 +26,55 @@
             <p><a href="telekocsi.html">Ugrás a telekocsi oldalra</a></p>
 
 
+            <table>
+                <tr></tr>
+                <td>Név</td>
+                <td><input type="text"></td>
+                <tr></tr>
 
-            <label for="nev">Név:</label><input type="text"><br>
-            <label for="email">E-mail cím:</label><input type="email"><br>
-            <label for="jelszo">Jelszó:</label><input type="password"><br>
-            <label for="jelszo">Jelszó ismét:</label><input type="password"><br>
-            <input type="submit" value="Mentés">
+                <tr></tr>
+                <td>E-mail cím</td>
+                <td><input type="email"></td>
+                <tr></tr>
+
+                <tr></tr>
+                <td>Jelszó</td>
+                <td><input type="password" id="password1"></td>
+                <tr></tr>
+
+                <tr></tr>
+                <td>Jelszó ismét</td>
+                <td><input type="password" id="password2"></td>
+                <tr></tr>
+
+                <tr>
+                    <td colspan="2"><input type="button" value="Mentés" id="mentesGomb"></td>
+                </tr>
 
 
-            <script> function checkPasswords() {
-                    let password1 = document.getElementById("password1").value;
-                    let password2 = document.getElementById("password2").value;
 
-                    if (password1 === "" || password2 === "") {
-                        alert("Töltsd ki mindkét jelszó mezőt!");
-                        return false;
+
+            </table>
+
+            <script>
+
+                saveButton.addEventListener("click", passwordCheck);
+                function passwordCheck() {
+                    let pass1 = document.querySelector("#password1").value
+                    let pass2 = document.querySelector("#password2").value
+                    if (pass1 == "" && pass2 == "") {
+                        aleret("A jelszó mezők kitöltése kötelező!")
+                    } else if (pass1 = "") {
+                        alert("A jelszó mező kitöltése kötelező!")
+                    } else if (pass2 = "") {
+                        alert("A jelszó megerősítő mező kitöltése kötelező!")
+                    } else if (pass1 != pass2)
+                        alert("A jelszavak nem egyeznek!")
+                    else {
+                        alert("Sikeres regisztráció!")
                     }
 
-                    if (password1 !== password2) {
-                        alert("A két jelszó nem egyezik meg!");
-                        return false;
-                    }
-
-                    return true;
                 }
-
-                var saveButton = document.getElementById("saveButton");
-                saveButton.addEventListener("click", checkPasswords);
 
             </script>
         </div>
